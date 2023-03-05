@@ -16,13 +16,10 @@ class Todo(db.Model):
   __tablename__ = "Todo"
     
   id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-  task_name = db.Column(db.Text, nullable=False, unique=True)
+  task_name = db.Column(db.Text, nullable=False )
   complete = db.Column(db.Boolean, default=False, nullable=False)
-  username = db.Column( 
-        db.Text, 
-        db.ForeignKey('users.username'), 
-        nullable=False
-    )
+  username = db.Column( db.Text, db.ForeignKey('users.username'), nullable=False)
+  db.UniqueConstraint(username, task_name)
 
   def __str__(self):
     return f'{self.id} {self.task_name} {self.complete} {self.username}'
