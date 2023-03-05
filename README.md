@@ -71,9 +71,8 @@ The CRUD operations can be performed through the end points of the REST API.
 * Register using Post request
 * http://127.0.0.1:5000/api/register
 * Request body JSON format
-{ "username": "johndoe", "password": "johndoepass" }
-* Returns
-* { msg: "user registration success" status: 200 }
+* - { "username": "johndoe", "password": "johndoepass" }
+* Returns { msg: "user registration success" status: 200 }
 
 * Login with username and password using Post request
 * http://127.0.0.1:5000/login
@@ -81,7 +80,7 @@ The CRUD operations can be performed through the end points of the REST API.
 * { "username": "johndoe", "password": "johndoepass" }
 
 * Returns token with status
-* {
+* - {
     "status": 200,
     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InJhbWExIiwiZXhwIjoxNjc3OTk0NjUwfQ.usVJV8k3YJVBkszA3j3XwanlB0ff7a-BW2nse7nqTxU"
 }
@@ -89,16 +88,16 @@ The CRUD operations can be performed through the end points of the REST API.
 * Create a resource, a task using Post request
 * http://127.0.0.1:5000/api/add
 * Send token in header
-* Header data set the x-access-token to the token recieved from client
-x-access-token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InJhbWExIiwiZXhwIjoxNjc3OTk0NjUwfQ.usVJV8k3YJVBkszA3j3XwanlB0ff7a-BW2nse7nqTxU
+* Header data, set the x-access-token to the token recieved from client
+* - x-access-token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InJhbWExIiwiZXhwIjoxNjc3OTk0NjUwfQ.usVJV8k3YJVBkszA3j3XwanlB0ff7a-BW2nse7nqTxU
 
 * Body contains
-{ "task_name" : "Do Laundary}
+* { "task_name" : "Do Laundary}
 * Response from server
-{
-    "msg": "todo created successfully",
-    "status": 200
-}
+* {
+* -    "msg": "todo created successfully",
+* -   "status": 200
+* }
 
 * View a Resource ( task) 
 * Only users who created the task can view it so send the token in the header
@@ -106,7 +105,7 @@ x-access-token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InJhbWExIi
 * - Use Post or Get request
 - Send token in header
 * Header data set the x-access-token to the token recieved from client
-x-access-token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InJhbWExIiwiZXhwIjoxNjc3OTk0NjUwfQ.usVJV8k3YJVBkszA3j3XwanlB0ff7a-BW2nse7nqTxU
+* x-access-token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9. -eyJ1c2VybmFtZSI6InJhbWExIiwiZXhwIjoxNjc3OTk0NjUwfQ.usVJV8k3YJVBkszA3j3XwanlB0ff7a-BW2nse7nqTxU
 
 * A typical response from  the server
 {
