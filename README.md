@@ -3,9 +3,9 @@ A repo to Todo single page app. (React Front End, Flask(Python) Backend)
 
 ## Description
 This is a multi user app for creating, maintianing and deleting tasks
-This app allows you to create a list of tasks that you want to perform mostly your daily activity
+This app allows you to create a list of tasks that you want to perform
 Once you have finished the task, you can mark it as complete or delete it.
-This is a multi user app which means, multiple users can use this app and they get to view, delete or update only the tasks that they have created.
+Being a multi user app means, multiple users can use this app and view, update or delete only the tasks that they have created.
 
 ## Img of App
 
@@ -61,37 +61,40 @@ The CRUD operations can be performed through the end points of the REST API.
 * To start the server 
 > flask run
 
-* To start the client: 1) cd frontend 2) npm install 3) npm start
+## To run the client
+* 1) cd client 2) npm install 3) npm start
 
 ## API testing through postman
 * The end points of the API can be tested through Postman
 
 ## API endponts
 * Register using Post request
-http://127.0.0.1:5000/api/register
-Request body JSON format
+* http://127.0.0.1:5000/api/register
+* Request body JSON format
 { "username": "johndoe", "password": "johndoepass" }
-Returns
-{ msg: "user registration success" status: 200 }
+* Returns
+* { msg: "user registration success" status: 200 }
 
 * Login with username and password using Post request
-http://127.0.0.1:5000/login
-Request body JSON format
-{ "username": "johndoe", "password": "johndoepass" }
-Returns token with status
-{
+* http://127.0.0.1:5000/login
+* Request body JSON format
+* { "username": "johndoe", "password": "johndoepass" }
+
+* Returns token with status
+* {
     "status": 200,
     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InJhbWExIiwiZXhwIjoxNjc3OTk0NjUwfQ.usVJV8k3YJVBkszA3j3XwanlB0ff7a-BW2nse7nqTxU"
 }
 
 * Create a resource, a task using Post request
-http://127.0.0.1:5000/api/add
-Send token in header
-Header data set the x-access-token to the token recieved from client
+* http://127.0.0.1:5000/api/add
+* Send token in header
+* Header data set the x-access-token to the token recieved from client
 x-access-token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InJhbWExIiwiZXhwIjoxNjc3OTk0NjUwfQ.usVJV8k3YJVBkszA3j3XwanlB0ff7a-BW2nse7nqTxU
-Body contains
+
+* Body contains
 { "task_name" : "Do Laundary}
-Response from server
+* Response from server
 {
     "msg": "todo created successfully",
     "status": 200
@@ -99,12 +102,13 @@ Response from server
 
 * View a Resource ( task) 
 * Only users who created the task can view it so send the token in the header
-http://127.0.0.1:5000/api/mytodos
-- Use Post or Get request
+* http://127.0.0.1:5000/api/mytodos
+* - Use Post or Get request
 - Send token in header
-Header data set the x-access-token to the token recieved from client
+* Header data set the x-access-token to the token recieved from client
 x-access-token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InJhbWExIiwiZXhwIjoxNjc3OTk0NjUwfQ.usVJV8k3YJVBkszA3j3XwanlB0ff7a-BW2nse7nqTxU
-- A typical response from  the server
+
+* A typical response from  the server
 {
     "todos": [
         {
@@ -130,24 +134,24 @@ http://127.0.0.1:5000/api/update/id
 - We can technically update any field but that features is not implemented in  this api
 - Use Post or Get request
 - Send token in header
-Header data set the x-access-token to the token recieved from client
+* Header data set the x-access-token to the token recieved from client
 x-access-token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InJhbWExIiwiZXhwIjoxNjc3OTk0NjUwfQ.usVJV8k3YJVBkszA3j3XwanlB0ff7a-BW2nse7nqTxU
 {
     "200": "Updated successfully"
 }
 
 * Delete the resource
-http://127.0.0.1:5000/api/delete/3
-Post request pass token through the header so only the data is filtered based
+* http://127.0.0.1:5000/api/delete/3
+* Post request pass token through the header so only the data is filtered based
 on the user sending the request and id, which means only the owner can delete the task
-Response from server
+* Response from server
 {
     "msg": "Deleted successfully"
 }
 
 * Proteced route for testing the token validity
 http://127.0.0.1:5000/protected
-If you pass the token in the header. If valid , it will return a succes message.
+* If you pass the token in the header. If valid , it will return a succes message.
 This route was created to test the authentication/authorization features.
 
 
