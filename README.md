@@ -16,7 +16,7 @@ The CRUD operations can be performed through the end points of the REST API.
 
 
 ## Features
-* Listing of tasks
+* Create, List, Update and deletion of tasks
 * User sign in, authentication and authorization
 * Restricted page access
 
@@ -24,7 +24,8 @@ The CRUD operations can be performed through the end points of the REST API.
 * User signs into account with user details
 * User logs in using username and passowrd
 * User creates the tasks
-* Once complete the task can be checked as complete
+* Once the task is finished, it can be checked as complete
+* User's can check and uncheck the task.
 * The task can be deleted from the list
 
 ## Tech Stack
@@ -104,7 +105,7 @@ The CRUD operations can be performed through the end points of the REST API.
 * http://127.0.0.1:5000/api/mytodos
 * - Use Post or Get request
 - Send token in header
-* Header data set the x-access-token to the token recieved from client
+* Header data set the x-access-token 
 * x-access-token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9. -eyJ1c2VybmFtZSI6InJhbWExIiwiZXhwIjoxNjc3OTk0NjUwfQ.usVJV8k3YJVBkszA3j3XwanlB0ff7a-BW2nse7nqTxU
 
 * A typical response from  the server
